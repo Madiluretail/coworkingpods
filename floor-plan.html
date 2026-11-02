@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Podscoworkingspace</title>
+    <meta
+      name="description"
+      content="Original 2D floor plan with an interactive 3D visualization of the workspace layout."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Floor Plan</span>
+        <h1>The workspace, in 2D and 3D.</h1>
+        <p>
+          The original layout drawing alongside an interactive 3D model built on
+          the same arrangement of rooms, corridors and partitions.
+        </p>
+      </div>
+    </section>
+    <section class="section" style="padding: 60px 0 40px">
+      <div class="container wide">
+        <div class="fp-grid">
+          <div class="fp-panel reveal">
+            <div class="fp-bar">
+              <h3>Original 2D floor plan</h3>
+              <div class="fp-tools" id="plan-tabs">
+                <button class="tool on" data-src="assets/images/floor-plan.jpg">
+                  Layout plan</button
+                ><button
+                  class="tool"
+                  data-src="assets/images/floor-plan-reference.jpg"
+                >
+                  Alternate rendering
+                </button>
+              </div>
+            </div>
+            <div class="fp-2d" id="plan2d" aria-label="Pan and zoom floor plan">
+              <img
+                id="plan-img"
+                src="assets/images/floor-plan.jpg"
+                alt="Original layout floor plan"
+              />
+            </div>
+            <div
+              class="fp-bar"
+              style="border-top: 1px solid var(--line); border-bottom: 0"
+            >
+              <span style="font-size: 0.84rem; color: var(--mute)"
+                >Scroll or pinch to zoom · drag to pan</span
+              >
+              <div class="fp-tools">
+                <button class="tool" id="z-out">− Zoom out</button
+                ><button class="tool" id="z-in">+ Zoom in</button
+                ><button class="tool" id="z-fit">Fit</button
+                ><button class="tool" id="z-open">Full size</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fp-panel reveal">
+            <div class="fp-bar">
+              <h3>Interactive 3D model</h3>
+              <div class="fp-tools" id="tools3d">
+                <button class="tool on" data-view="iso">Isometric</button
+                ><button class="tool" data-view="top">Top</button
+                ><button class="tool" data-view="front">Front</button>
+                <button class="tool" data-act="zoomin">+</button
+                ><button class="tool" data-act="zoomout">−</button>
+                <button class="tool on" data-act="cut">Cutaway walls</button
+                ><button class="tool on" data-act="furn">Furniture</button
+                ><button class="tool on" data-act="labels">Labels</button
+                ><button class="tool" data-act="rotate">Auto-rotate</button
+                ><button class="tool" data-act="full">Expand</button>
+              </div>
+            </div>
+            <div class="fp-3d" id="stage">
+              <div class="fp-loading" id="loading">Loading 3D model…</div>
+              <div class="fp-info" id="info"></div>
+              <div class="fp-hint">
+                Drag to orbit · right-drag to pan · scroll to zoom · click a
+                room
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding: 40px 0">
+      <div class="container">
+        <div class="fp-panel reveal">
+          <div class="fp-bar">
+            <h3>Legend</h3>
+            <span style="font-size: 0.84rem; color: var(--mute)"
+              >Click a room type to highlight it in the 3D model</span
+            >
+          </div>
+          <div class="fp-sub">Room types</div>
+          <div class="legend" id="legend"></div>
+          <div class="fp-sub">Symbols</div>
+          <div class="sym">
+            <div><span class="sw arc"></span>Door and door swing</div>
+            <div>
+              <span class="sw glass"></span>Glass partition (green frame)
+            </div>
+            <div><span class="sw wall"></span>Structural / solid wall</div>
+            <div>
+              <span class="sw wood"></span>Workstation desk (inferred form)
+            </div>
+            <div><span class="sw chair"></span>Chair (inferred form)</div>
+            <div><span class="sw plant"></span>Planter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" style="padding: 80px 0">
+      <div class="container">
+        <div class="head reveal">
+          <span class="eyebrow">How the model was made</span>
+          <h2>What is confirmed, and what is inferred.</h2>
+        </div>
+        <div class="confirm-list reveal">
+          <div>
+            <b>Taken from the plan</b>Room arrangement, corridors, partitions,
+            door positions, room names, area figures, workstation counts (WS)
+            and the lobby and store-room sizes, traced from the supplied
+            drawing.
+          </div>
+          <div>
+            <b>Inferred</b>Desk and chair arrangement inside each room,
+            furniture forms, planters, sanitary fixtures and reception
+            furniture. These follow the drawing's symbols but are illustrative.
+          </div>
+          <div>
+            <b>Not provided</b>Wall and ceiling heights, true dimensions,
+            windows and structural details are not in the drawing. Model units
+            are drawing units and heights are illustrative only.
+          </div>
+          <div>
+            <b>Figures shown</b>Areas are shown as printed on the plan (the plan
+            marks them in square metres). The two supplied renderings differ
+            slightly in a few labels; the model follows the layout plan.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta">
+      <div class="container reveal">
+        <span class="eyebrow">Next step</span>
+        <h2>See the workspace in person.</h2>
+        <p>
+          Call us or send an enquiry to arrange a visit and discuss your
+          requirements.
+        </p>
+        <div class="btn-row">
+          <a class="btn gold" href="contact.html#visit"
+            >Book a Visit <span data-icon="arrow"></span></a
+          ><a class="btn line" href="contact.html#enquiry">Send an Enquiry</a>
+        </div>
+      </div>
+    </section>
+    <script src="js/main.js"></script>
+    <script src="assets/models/lib/three.min.js"></script>
+    <script src="assets/models/lib/OrbitControls.js"></script>
+    <script src="js/floor-plan.js"></script>
+  </body>
+</html>
