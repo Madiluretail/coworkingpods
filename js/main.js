@@ -1,5 +1,5 @@
 (function () {
-  const BRAND = { name: 'Podscoworkingspace', tag: '' };
+  const BRAND = { name: 'Podscoworking', tag: '' };
   const CONTACT = { phone: '9845010100', email: 'vasants.vlf@gmail.com', address: '44/2A, Bellary Road, Hebbal, Bengaluru, Karnataka – 560092, India' };
   const NAV = [['index.html', 'Home'], ['about.html', 'About'], ['workspaces.html', 'Workspaces'], ['amenities.html', 'Amenities'], ['gallery.html', 'Gallery'], ['floor-plan.html', 'Floor Plan'], ['location.html', 'Location'], ['contact.html', 'Contact']];
 
