@@ -8,20 +8,15 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static assets
-app.use(express.static(__dirname));
+// Redirect old .html URLs to clean URLs
+app.use((req, res, next) => {
+    const match = req.path.match(/^\/([a-zA-Z0-9_-]+)\.html$/);
 
-// Redirect .html URLs to clean URLs
-app.get("/:page.html", (req, res, next) => {
-    res.redirect(301, `/${req.params.page}`);
-});
-
-// Serve HTML pages without .html
-app.get("/:page", (req, res, next) => {
-    const pagePath = path.join(__dirname, `${req.params.page}.html`);
-
-    if (fs.existsSync(pagePath)) {
-        return res.sendFile(pagePath);
+    if (match) {
+        return res.redirect(
+            301,
+            `/${match[1]}${req.url.slice(req.path.length)}`
+        );
     }
 
     next();
@@ -32,9 +27,29 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// 404 page
+// Clean URLs: /amenities, /about, /contact
+app.get("/:page", (req, res, next) => {
+    const page = req.params.page;
+
+    if (!/^[a-zA-Z0-9_-]+$/.test(page)) {
+        return next();
+    }
+
+    const filePath = path.join(__dirname, `${page}.html`);
+
+    if (fs.existsSync(filePath)) {
+        return res.sendFile(filePath);
+    }
+
+    next();
+});
+
+// Serve CSS, JavaScript, images and other static files
+app.use(express.static(__dirname));
+
+// 404
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, "404.html"));
+    res.status(404).send("Page not found");
 });
 
 const PORT = process.env.PORT || 3000;
