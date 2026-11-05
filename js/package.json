@@ -1,0 +1,13 @@
+
+{
+  "name": "workspace-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo Static website ready"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
