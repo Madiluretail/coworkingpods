@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 // Homepage
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
 });
 
 // Clean URLs: /amenities, /about, /contact
