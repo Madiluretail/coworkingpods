@@ -230,6 +230,17 @@ form{display:grid;gap:20px}
 .nav-links a{font-size:1.05rem}
 .burger{position:relative;z-index:60}
 body.menu-open .site-header{color:var(--char)}
+.site-header.solid,
+.site-header.always {
+    backdrop-filter: none;
+}
+
+.nav-links {
+    z-index: 55;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+}
 }
 @media (max-width:640px){
 .section{padding:76px 0}
