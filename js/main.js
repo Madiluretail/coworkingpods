@@ -55,7 +55,11 @@
   const header = document.createElement('header');
   header.className = 'site-header' + (hero ? '' : ' always');
   header.innerHTML = `<div class="container nav">
-    <a class="brand" href="index.html" aria-label="${BRAND.name} home">${BRAND.name}</span></a>
+
+    <a class="brand" href="index.html" aria-label="PODS Coworking home">
+  <img src="assets/images/taglinelogo.jpeg" alt="PODS Coworking Logo">
+</a>
+
     <button class="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links" aria-label="Main">${NAV.filter(n => n[0] !== 'contact.html').map(n => `<a href="${n[0]}" class="${n[0] === page ? 'active' : ''}">${n[1]}</a>`).join('')}
     <a href="contact.html" class="${page === 'contact.html' ? 'active' : ''}">Contact</a>
