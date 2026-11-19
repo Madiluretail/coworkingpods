@@ -261,7 +261,7 @@ body.menu-open .site-header{color:var(--char)}
 .sw.glass{background:rgba(120,190,180,.35);border-color:#2f4a43}
 .sw.wall{background:#3d4046}
 .sw.wood{background:#d8a35a}
-.sw.chair{background:#24262a;bord   er-radius:50%}
+.sw.chair{background:#24262a;border-radius:50%}
 .sw.plant{background:#4f8a4a;border-radius:50%}
 .fp-sub{padding:16px 24px 6px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);font-weight:600}
 
