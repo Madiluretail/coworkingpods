@@ -265,12 +265,37 @@ body.menu-open .site-header{color:var(--char)}
 .sw.plant{background:#4f8a4a;border-radius:50%}
 .fp-sub{padding:16px 24px 6px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);font-weight:600}
 
+/* Logo sizing */
+.site-header .brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 .site-header .brand img {
-    display: block;
-    width: 240px;
-    height: auto;
-    max-height: none;
+    width: 260px;
+    height: 70px;
     object-fit: contain;
+}
+
+/* Initially show white logo */
+.site-header .brand .logo-white {
+    display: block;
+}
+
+.site-header .brand .logo-black {
+    display: none;
+}
+
+/* After scrolling - show black logo */
+.site-header.solid .brand .logo-white,
+.site-header.always .brand .logo-white {
+    display: none;
+}
+
+.site-header.solid .brand .logo-black,
+.site-header.always .brand .logo-black {
+    display: block;
 }
 
 /* Tablet */

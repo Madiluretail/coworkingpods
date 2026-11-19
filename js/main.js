@@ -56,8 +56,20 @@
   header.className = 'site-header' + (hero ? '' : ' always');
   header.innerHTML = `<div class="container nav">
 
-    <a class="brand" href="index.html" aria-label="PODS Coworking home">
-  <img src="assets/images/taglinelogo.jpeg" alt="PODS Coworking Logo">
+<a class="brand" href="index.html" aria-label="PODS Coworking home">
+
+    <img
+        class="logo-white"
+        src="assets/images/pods-logo-white-transparent.png"
+        alt="PODS Coworking"
+    >
+
+    <img
+        class="logo-black"
+        src="assets/images/pods-logo-black-transparent.png"
+        alt="PODS Coworking"
+    >
+
 </a>
 
     <button class="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
