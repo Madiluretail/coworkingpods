@@ -311,3 +311,18 @@ body.menu-open .site-header{color:var(--char)}
         width: 165px;
     }
 }
+
+#small-offices .ws-media {
+    width: 150%;
+    max-width: none;
+}
+
+#small-offices .ws-media figure {
+    width: 100%;
+}
+
+#small-offices .ws-media img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
